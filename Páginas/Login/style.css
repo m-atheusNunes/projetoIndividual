@@ -1,8 +1,14 @@
+@font-face {
+    font-family: "montSerrat";
+    src: url(./assets/fontes/Montserrat-VariableFont_wght.ttf) format("truetype");
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     position: relative;
+    font-family: 'montSerrat';
 }
 
 body {
@@ -73,33 +79,84 @@ main .container {
 }
 
 main img {
-    width: 300px;
+    width: 350px;
 }
 
 .quadro_login {
     width: 450px;
-    height: 300px;
+    height: 330px;
     border: 3px solid #DAA520;
     border-radius: 30px;
 }
 
-.campos {
-    width: 300px;
-    height: 200px;
-    margin: 15px 30px 15px 25px;
+.campos_cima {
+    width: 450px;
+    height: 230px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 
-.campos label {
+label {
     font-size: 16px;
     color: white;
+    margin: 25px 275px 6px 0px;
+    font-weight: thin;
 }
 
-.campos input {
-    width: 290px;
-    height: 30px;
+label .icon {
+    width: 17px;
+    margin-left: 5px;
+}
+
+.campos_cima input {
+    width: 350px;
+    height: 45px;
     border: 1px solid #DAA520;
-    border-radius: 5px;
+    border-radius: 10px;
+    outline: none;
+    padding-left: 10px;
+}
+
+.campos_baixo {
+    width: 450px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.campos_baixo button {
+    width: 175px;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    background-color: #DAA520;
+    color: white;
+    font-weight: bolder;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.campos_baixo p {
+    color: white;
+    font-size: 14px;
+    font-weight: thin;
+    padding-bottom: 10px;
+}
+
+.campos_baixo p u {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.campos_baixo p u:hover {
+    color: rgb(219, 219, 219);
+}
+
+.campos_baixo a {
+    color: white;
 }

@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stars.css">
 </head>
 <body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3 "></div>
+    </div>
     <header>
         <div class="container">
             <div class="logo_header">   
@@ -23,11 +29,15 @@
         <div class="container">
                 <img src="./assets/Imagens/logo_main.png" alt="Logo Libertadores">
                 <div class="quadro_login">
-                    <div class="campos">
-                        <label>E-MAIL</label> <br>
-                        <input id="login_email"> <br>
-                        <label>SENHA</label> <br>
-                        <input id="login_senha"> <br>
+                    <div class="campos_cima">
+                        <label>Email <img class="icon" src="./assets/Imagens/icon_email.png"></label> 
+                        <input placeholder="exemplo@email.com" id="login_email" type="email"> <br>
+                        <label>Senha <img class="icon "src="./assets/Imagens/icon_password.png"></label>
+                        <input placeholder="**********" id="login_senha" type="password"> <br>
+                    </div>
+                    <div class="campos_baixo">
+                        <button>LOGIN</button>
+                        <p>Não é registrado? <a href="#"><u>CADASTRE-SE</u></a></p>
                     </div>
                 </div>
         </div>
