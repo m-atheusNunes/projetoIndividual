@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Entre na sua conta!</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="stars.css">
+    <link rel="icon" type="imagem/png" href="./assets/Imagens/logo.png" />
 </head>
+
 <body>
     <div class="wrapper">
         <div id="stars"></div>
@@ -16,8 +19,8 @@
     </div>
     <header>
         <div class="container">
-            <div class="logo_header">   
-                <a href="#"><img src="./assets/Imagens/logo_navbar.png" alt="Logo Libertadores"></a>
+            <div class="logo_header">
+                <a href="#"><img src="./assets/Imagens/logo.png" alt="Logo Libertadores"></a>
             </div>
             <div class="botoes_header">
                 <a href="#"><button>CADASTRO</button></a>
@@ -27,20 +30,21 @@
     </header>
     <main>
         <div class="container">
-                <img src="./assets/Imagens/logo_main.png" alt="Logo Libertadores">
-                <div class="quadro_login">
-                    <div class="campos_cima">
-                        <label>Email <img class="icon" src="./assets/Imagens/icon_email.png"></label> 
-                        <input placeholder="exemplo@email.com" id="login_email" type="email"> <br>
-                        <label>Senha <img class="icon "src="./assets/Imagens/icon_password.png"></label>
-                        <input placeholder="**********" id="login_senha" type="password"> <br>
-                    </div>
-                    <div class="campos_baixo">
-                        <button>LOGIN</button>
-                        <p>Não é registrado? <a href="#"><u>CADASTRE-SE</u></a></p>
-                    </div>
+            <img src="./assets/Imagens/logo_main.png" alt="Logo Libertadores">
+            <div class="quadro_login">
+                <div class="campos_cima">
+                    <label for="login_email">Email <img class="icon" src="./assets/Imagens/icon_email.png"></label>
+                    <input placeholder="exemplo@email.com" id="login_email" type="email"> <br>
+                    <label for="login_senha">Senha <img class="icon " src="./assets/Imagens/icon_password.png"></label>
+                    <input placeholder="**********" id="login_senha" type="password"> <br>
                 </div>
+                <div class="campos_baixo">
+                    <button>LOGIN</button>
+                    <p>Não é registrado? <a href="#"><u>CADASTRE-SE</u></a></p>
+                </div>
+            </div>
         </div>
     </main>
 </body>
+
 </html>
