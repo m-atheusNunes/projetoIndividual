@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se! Seja parte de nossos usuários</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="imagem/png" href="./assets/Imagens/logo.png"/>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo_header">
+                <a href="#"><img src="./assets/Imagens/logo.png" alt="Logo Libertadores"></a>
+            </div>
+            <div class="botoes_header">
+                <a href="#"><button>CADASTRO</button></a>
+                <a href="#"><button>LOGIN</button></a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="quadro_cadastro">
+                <div class="campos_esquerda">
+                    <label for="nome">Nome</label>
+                    <input placeholder="Primeiro nome" id="nome" type="text"> <br>
+                    <label for="cadastro_email">Email</label>
+                    <input placeholder="exemplo@email.com" id="cadastro_email" type="email"> <br>
+                    <label for="">Senha</label>
+                    <input placeholder="Senha" id="cadastro_senha" type="password"> <br>
+                    <div class="menores">
+                        <label for="dtNasc">Nascimento</label>
+                        <label for="genero">Gênero</label>
+                    </div>
+                    <div class="menores">
+                        <input id="dtNasc" type="date"> <br>
+                        <select id="genero">
+                            <option value="">Selecione...</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="campos_direita">
+                    <label for="sobrenome">Sobrenome</label>
+                    <input placeholder="Sobrenome" id="sobrenome" type="text"> <br>
+                    <label for="confirmarEmail">Confirmar Email</label>
+                    <input placeholder="Confirmar email" id="confirmarEmail" type="email"> <br>
+                    <label for="confirmarSenha">Confirmar Senha</label>
+                    <input placeholder="Confirmar senha" id="confirmarSenha" type="password"> <br>
+                    <label for="time">Time do coração</label>
+                    <input placeholder="Nome do seu time" id="time" type="text">
+                </div>
+                <div class="campos_baixo">
+                    <button>CADASTRE-SE</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

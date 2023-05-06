@@ -1,0 +1,155 @@
+@font-face {
+    font-family: "montSerrat";
+    src: url(./assets/fontes/Montserrat-VariableFont_wght.ttf) format("truetype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    font-family: 'montSerrat';
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(./assets/Imagens/background.jpg);
+    background-size: 100vw;
+    background-position: 38% 10%;
+}
+
+body:focus {
+    transition: 0.5s smooth;
+    background-position: 38% 50%;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    margin-top: 10px;
+}
+
+.container {
+    width: 87.5vw;
+    display: flex;
+}
+
+header .container {
+    height: 90px;
+    border: 3px solid #DAA520;
+    border-radius: 15px;
+    box-shadow: 0px 5px 5px #daa52041;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo_header {
+    margin: 5px 0px 5px 40px;
+}
+
+.logo_header img {
+    height: 70px;
+    cursor: pointer;
+}
+
+.botoes_header {
+    width: 400px;
+    margin-right: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.botoes_header button {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botoes_header button:hover {
+    color: lightgrey;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+main .container {
+    justify-content: space-around;
+    align-items: center;
+}
+
+.quadro_cadastro {
+    width: 65%;
+    height: 500px;
+    border: 3px solid #DAA520;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.campos_esquerda {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 42.5%;
+    height: 350px;
+    margin: 5%;
+}
+
+.menores {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menores input {
+    width: 48%;
+}
+
+.menores select {
+    width: 48%;
+}
+
+label {
+    font-size: 16px;
+    color: white;
+    font-weight: thin;
+}
+
+input {
+    height: 45px;
+    border: 1px solid #DAA520;
+    border-radius: 10px;
+    outline: none;
+    padding-left: 10px;
+    box-shadow: 5px 5px 5px #daa52041;
+}
+
+select {
+    height: 45px;
+    border: 1px solid #DAA520;
+    border-radius: 10px;
+    outline: none;
+    padding-left: 10px;
+    box-shadow: 5px 5px 5px #daa52041;
+}
+
+.campos_direita {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 42.5%;
+    height: 350px;
+    margin: 5%;
+}
+
+.campos_baixo {
+    display: flex;
+    flex-direction: column;
+    
+}
