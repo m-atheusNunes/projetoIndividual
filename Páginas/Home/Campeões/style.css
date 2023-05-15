@@ -1,0 +1,260 @@
+@font-face {
+    font-family: "montSerrat";
+    src: url(./assets/fontes/Montserrat-VariableFont_wght.ttf) format("truetype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    font-family: 'montSerrat';
+}
+
+body {
+    background-color: black;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    margin-top: 10px;
+}
+
+.container {
+    width: 87.5vw;
+    display: flex;
+}
+
+header .container {
+    height: 90px;
+    border: 3px solid #DAA520;
+    border-radius: 15px;
+    box-shadow: 0px 2px 2px #daa52041;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo_header {
+    margin: 5px 0px 5px 40px;
+}
+
+.logo_header img {
+    height: 70px;
+    cursor: pointer;
+}
+
+.botoes_header {
+    width: 400px;
+    margin-right: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.botoes_header button {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botoes_header button:hover {
+    color: lightgrey;
+}
+
+.content {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+.card {
+    width: 400px;
+    background-color: #FFF;
+    border-radius: 20px;
+    box-shadow: 0px 2px 23px #26395338;
+    border: 2px solid #DAA520;
+}
+
+.mediaCard_independiente {
+    background: url(https://www.futbox.com/img/v1/233/162/d98/b60/72be8a1969aa1671e1bf.png) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_bocaJuniors {
+    background: url(https://static-img.zz.pt/history/imgS620I11765T20190523171001.png) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_penarol {
+    background: url(https://i.pinimg.com/originals/79/a8/ef/79a8ef92cf4ef8aa8ef7b268ad16dd71.jpg) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_riverPlate {
+    background: url(https://static-img.zz.pt/history/imgS620I11763T20190522184524.png) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_estudiantes {
+    background: url(https://wallpapercave.com/wp/wp10783008.jpg) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_nacional {
+    background: url(https://besthqwallpapers.com/Uploads/26-4-2018/50051/thumb2-club-nacional-de-football-4k-uruguayan-football-club-logo-material-design.jpg) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_saoPaulo {
+    background: url(https://static-img.zz.pt/history/imgS620I11715T20190403171814.png) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_olimpia {
+    background: url(https://pbs.twimg.com/media/E7l5nHMXoAcO4AC.jpg) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_santos {
+    background: url(https://www.futebolnaveia.com.br/wp-content/uploads/2023/04/Design-sem-nome-61-1.jpg) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_gremio {
+    background: url(https://www.ogol.com.br/img/history/imgS620I11719T20190404153933.png) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_palmeiras {
+    background: url(https://static-img.zz.pt/history/imgS620I11712T20190402191855.png) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_flamengo {
+    background: url(https://static-img.zz.pt/history/imgS620I11697T20190326175725.png) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_cruzeiro {
+    background: url(https://www.ogol.com.br/img/history/imgS620I11724T20190409193619.png) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_internacional {
+    background: url(https://static-img.zz.pt/history/imgS620I11716T20190403225419.png) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_atleticoNacional {
+    background: url(https://besthqwallpapers.com/Uploads/12-5-2018/52223/thumb-atletico-nacional-4k-logo-colombian-football-club-silk-texture.jpg) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_racing {
+    background: url(https://besthqwallpapers.com/Uploads/1-11-2017/26625/thumb2-racing-club-de-avellaneda-4k-argentine-football-club-emblem-logo.jpg) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_argentinoJuniors {
+    background: url(https://www.futbox.com/img/v1/806/965/84d/29f/3f1dde187738b5845e62.png) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_coloColo {
+    background: url(https://images2.alphacoders.com/118/1182651.jpg) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_velezSarsfield {
+    background: url(https://www.futbox.com/img/v1/e24/9b2/49d/080/678ce5d47eed43da8d90.png) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_vasco {
+    background: url(https://portaledicase.com/wp-content/uploads/2023/04/Vasco-da-Gama.png) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_onceCaldas {
+    background: url(https://occidente.co/wp-content/uploads/2019/02/once-caldas.jpg) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_ldu {
+    background: url(https://enavtpfootball.files.wordpress.com/2020/11/ldu-quito.png) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_corinthians {
+    background: url(https://static-img.zz.pt/history/imgS620I11702T20190328165351.png) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_atleticoMineiro {
+    background: url(https://www.futbox.com/img/v1/0e4/635/8c5/7a6/b0b0a2e0a3ee59c5b8f3.png) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.mediaCard_sanLorenzo {
+    background: url(https://w0.peakpx.com/wallpaper/23/429/HD-wallpaper-ca-san-lorenzo-de-almagro-logo-creative-art-red-gray-checkered-flag-argentinian-football-club-argentine-superleague-primera-division-emblem-silk-texture-buenos-aires-argentina-football-san.jpg) center/cover;
+    width: 100%;
+    height: 250px;
+}
+
+.title {
+    padding-top: 10px;
+    color: #DAA520;
+    font-weight: bolder;
+}
+
+.secondText {
+    color: #b8902c;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.bottomText {
+    color: #000000;
+}
+
+.topCard {
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.bottomCard {
+    padding: 20px;
+}
