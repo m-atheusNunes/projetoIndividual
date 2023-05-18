@@ -23,7 +23,7 @@
                 <a href="#"><img src="./assets/Imagens/logo.png" alt="Logo Libertadores"></a>
             </div>
             <div class="botoes_header">
-                <a href="../Cadastro/index.html"><button>CADASTRO</button></a>
+                <a href="./Páginas/Cadastro/index.html"><button>CADASTRO</button></a>
                 <a href="#"><button>LOGIN</button></a>
             </div>
         </div>
@@ -34,13 +34,13 @@
             <div class="quadro_login">
                 <div class="campos_cima">
                     <label for="login_email">Email <img class="icon" src="./assets/Imagens/icon_email.png"></label>
-                    <input placeholder="exemplo@email.com" id="login_email" type="email"> <br>
+                    <input placeholder="exemplo@email.com" id="ipt_email" type="email"> <br>
                     <label for="login_senha">Senha <img class="icon " src="./assets/Imagens/icon_password.png"></label>
-                    <input placeholder="**********" id="login_senha" type="password"> <br>
+                    <input placeholder="**********" id="ipt_senha" type="password"> <br>
                 </div>
                 <div class="campos_baixo">
-                    <button>LOGIN</button>
-                    <p>Não é registrado? <a href="../Cadastro/index.html"><u>CADASTRE-SE</u></a></p>
+                    <button class="btn-login">LOGIN</button>
+                    <p>Não é registrado? <a href="./Páginas/Cadastro/index.html"><u>CADASTRE-SE</u></a></p>
                 </div>
             </div>
         </div>
@@ -48,3 +48,24 @@
 </body>
 
 </html>
+<script>
+    document.querySelector(".btn-login").addEventListener("click", () => {
+        var email = ipt_email.value;
+        var senha = ipt_senha.value;
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(res => {
+            if(res.ok) {
+                window.location.href = "./Páginas/Home/Campeões/index.html"
+            }
+            console.log(res)
+        })
+    })
+</script>

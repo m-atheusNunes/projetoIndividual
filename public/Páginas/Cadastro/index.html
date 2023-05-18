@@ -12,11 +12,11 @@
     <header>
         <div class="container">
             <div class="logo_header">
-                <a href="../Login/index.html"><img src="./assets/Imagens/logo.png" alt="Logo Libertadores"></a>
+                <a href="/"><img src="./assets/Imagens/logo.png" alt="Logo Libertadores"></a>
             </div>
             <div class="botoes_header">
                 <a href="#"><button>CADASTRO</button></a>
-                <a href="../Login/index.html"><button>LOGIN</button></a>
+                <a href="/"><button>LOGIN</button></a>
             </div>
         </div>
     </header>
@@ -26,27 +26,27 @@
                 <div class="campos">
                     <div class="campos_esquerda">
                         <label for="nome">Nome</label>
-                        <input placeholder="Primeiro nome" id="nome" type="text"> 
+                        <input placeholder="Primeiro nome" id="ipt_nome" type="text"> 
                         <label for="cadastro_email">Email</label>
-                        <input placeholder="exemplo@email.com" id="cadastro_email" type="email"> 
+                        <input placeholder="exemplo@email.com" id="ipt_email" type="email"> 
                         <label for="">Senha</label>
-                        <input placeholder="Senha" id="cadastro_senha" type="password"> 
+                        <input placeholder="Senha" id="ipt_senha" type="password"> 
                         <label for="dtNasc">Nascimento</label>
                         <input id="dtNasc" type="date">
                     </div>
                     <div class="campos_direita">
                         <label for="sobrenome">Sobrenome</label>
-                        <input placeholder="Sobrenome" id="sobrenome" type="text"> 
+                        <input placeholder="Sobrenome" id="ipt_sobrenome" type="text"> 
                         <label for="confirmarEmail">Confirmar Email</label>
                         <input placeholder="Confirmar email" id="confirmarEmail" type="email"> 
                         <label for="confirmarSenha">Confirmar Senha</label>
                         <input placeholder="Confirmar senha" id="confirmarSenha" type="password"> 
                         <label for="genero">Gênero</label>
-                        <select id="genero">
+                        <select id="ipt_genero">
                             <option value="">Selecione...</option>
-                            <option value="feminino">Feminino</option>
-                            <option value="masculino">Masculino</option>
-                            <option value="outro">Outro</option>
+                            <option value="f">Feminino</option>
+                            <option value="m">Masculino</option>
+                            <option value="n">Prefiro não informar</option>
                         </select>
                     </div>
                 </div>
@@ -56,3 +56,30 @@
     </main>
 </body>
 </html>
+<script>
+    document.querySelector(".btn-cadastro").addEventListener("click", () => {
+        var nome = ipt_nome.value;
+        var sobrenome = ipt_sobrenome.value;
+        var email = ipt_email.value;
+        var senha = ipt_senha.value;
+        var genero = ipt_genero.value;
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nomeServer: nome,
+                sobrenomeServer: sobrenome,
+                emailServer: email,
+                senhaServer: senha,
+                generoServer: genero
+            })
+        }).then(res => {
+            if(res.ok) {
+                window.location.href = "/"
+            }
+            console.log(res)
+        })
+    })
+</script>

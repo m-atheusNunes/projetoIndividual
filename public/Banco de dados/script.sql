@@ -1,4 +1,6 @@
+DROP DATABASE IF EXISTS libertadores;
 CREATE DATABASE IF NOT EXISTS libertadores;
+
 USE libertadores;
 
 DROP TABLE IF EXISTS tentativa;
@@ -15,7 +17,7 @@ CREATE TABLE usuario (
     email VARCHAR(255) UNIQUE NOT NULL,
     senha VARCHAR(20) NOT NULL,
     genero CHAR(1) NOT NULL,
-    CONSTRAINT chkEmail CHECK (email IN('%@%')),
+    CONSTRAINT chkEmail CHECK (email LIKE '%@%'),
     CONSTRAINT chkGenero CHECK (genero IN('m', 'f', 'n'))
 );
 
@@ -41,15 +43,17 @@ CREATE TABLE timeCampeao (
     nome VARCHAR(255) PRIMARY KEY NOT NULL,
     pais VARCHAR(45) NOT NULL,
     estadio VARCHAR(45) NOT NULL,
-    dtFundacao VARCHAR(45) NOT NULL
-    qtdTitulos INT NOT NULL,
+    dtFundacao VARCHAR(45) NOT NULL,
+    qtdTitulos INT NOT NULL
 );
 
 CREATE TABLE jogadorArtilheiro (
+    id INT AUTO_INCREMENT,
+    fkTime VARCHAR(255) NOT NULL,
     nome VARCHAR(45) NOT NULL,
-    fkTime VARCHAR(255) NOT NULL UNIQUE,
     gols INT NOT NULL,
-    CONSTRAINT fkTime FOREIGN KEY (fkTime) REFERENCES time(nome)
+    CONSTRAINT fkTime FOREIGN KEY (fkTime) REFERENCES timeCampeao(nome),
+    CONSTRAINT pkIdFkTime PRIMARY KEY (id, fkTime)
 );
 
 INSERT INTO timeCampeao VALUES
