@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stars.css">
+    <title>Início</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3 "></div>
+    </div>
+    <header>
+        <div class="container">
+            <div class="logo_header">
+                <a href="/home.html"><img src="./assets/Imagens/logo.png" alt="Logo Libertadores"></a>
+            </div>
+            <div class="botoes_header">
+                <a href="/home.html"><button>HISTÓRIA</button></a>
+                <a href="#"><button>CAMPEÕES</button></a>
+                <a href="/quiz.html"><button>QUIZ</button></a>
+            </div>
+        </div>
+    </header>
+    <div id="container"></div>
+</body>
+
+</html>
+<script>
+    async function getTime() {
+
+        var resposta = await fetch("/times/listar", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+        for (var i = 0; i < resposta.length; i++) {
+            gerarTime(resposta[i])
+        }
+    }
+
+    function gerarTime(time) {
+        container.innerHTML += `
+            <div class="card">
+                <div class="topCard">
+                    <h2 class="title">${time.nome}</h2>
+                    <span class="secondText">${time.pais}</span> 
+                </div>
+                <div id="div_img" style="background: url(${time.urlImagem}) center/cover; width: 100%; height: 250px;"></div>
+                <div class="bottomCard">
+                    <p class="bottomText">
+                    <b>Estádio:</b> ${time.estadio}<br>
+                    <b>Data de fundação:</b> ${time.dtFundacao} <br>
+                    <b>Títulos da Libertadores:</b> ${time.qtdTitulos} <br>
+                    <b>Artilheiro:</b> ${time.nomeJogador} (${time.gols} gols)
+                    </p>
+                </div>
+            </div>
+                    `
+    }
+    getTime()
+</script>
