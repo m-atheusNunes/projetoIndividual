@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entre na sua conta!</title>
     <link rel="stylesheet" href="./assets/CSS/index_style.css">
     <link rel="stylesheet" href="./assets/CSS/stars.css">
     <link rel="icon" type="imagem/png" href="./assets/Imagens/logo.png" />
+    <title>Entre na sua conta!</title>
 </head>
 
 <body>
@@ -62,7 +62,7 @@
                 senhaServer: senha
             })
         }).then(res => {
-            if(res.ok) {
+            if (res.ok) {
                 window.location.href = "./Páginas/Home/Campeões/index.html"
             }
             console.log(res)
