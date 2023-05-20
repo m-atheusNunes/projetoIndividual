@@ -7,7 +7,7 @@ router.get("/listar", function(req, res) {
     timeController.listar(req, res);
 });
 
-router.post("/listarJogadores", function(req, res) {
-    timeController.listarJogadores(req, res);
+router.get("/listarEscudos", function(req, res) {
+    timeController.listarEscudos(req, res);
 });
 module.exports = router;

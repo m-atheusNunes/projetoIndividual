@@ -19,9 +19,8 @@ function listar(req, res) {
     );
 }
 
-function listarJogadores(req, res) {
-    var nomeTime = req.body.nomeTimeServer;
-    timeModel.listarJogadores(nomeTime)
+function listarEscudos(req, res) {
+    timeModel.listarEscudos()
     .then(function (resultado) {
         if(resultado.length > 0) {
             res.status(200).json(resultado);
@@ -39,5 +38,5 @@ function listarJogadores(req, res) {
 
 module.exports = {
     listar,
-    listarJogadores
+    listarEscudos
 }

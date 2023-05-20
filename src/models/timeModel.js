@@ -5,12 +5,12 @@ function listar() {
     return database.executar(instrucao);
 }
 
-function listarJogadores(nomeTime) {
-    var instrucao = `SELECT * FROM jogadorArtilheiro WHERE fkTime = '${nomeTime}';`;
+function listarEscudos() {
+    var instrucao = `SELECT nome, urlImagem FROM timeCampeao;`;
     return database.executar(instrucao);
 }
 
 module.exports = {
     listar,
-    listarJogadores
+    listarEscudos
 }
