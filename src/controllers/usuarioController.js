@@ -77,12 +77,9 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (genero == undefined) {
-        res.status(400).send("Seu genero está undefined!");
-    } else {
-        
+    } else { 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, sobrenome, email, senha, genero)
+        usuarioModel.cadastrar(nome, sobrenome, email, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
