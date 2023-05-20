@@ -91,6 +91,8 @@
                 if (res.ok) {
                     alert("Cadastro efetuado! Redirecionando...")
                     setInterval(redirecionarLogin(), 3000)
+                } else if(!res.ok) {
+                    alert("Email já em uso!")
                 }
                 console.log(res)
             })
