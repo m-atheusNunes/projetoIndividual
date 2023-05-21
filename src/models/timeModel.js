@@ -6,7 +6,7 @@ function listar() {
 }
 
 function listarEscudos() {
-    var instrucao = `SELECT nome, urlImagem FROM timeCampeao;`;
+    var instrucao = `SELECT nome, urlImagem FROM timeCampeao ORDER BY RAND() LIMIT 10;`;
     return database.executar(instrucao);
 }
 
