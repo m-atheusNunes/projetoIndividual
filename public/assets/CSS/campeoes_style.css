@@ -64,6 +64,14 @@ header .container {
     color: lightgrey;
 }
 
+#content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
 .card {
     width: 400px;
     background-color: #FFF;
@@ -72,13 +80,6 @@ header .container {
     border: 2px solid #DAA520;
 }
 
-#content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 30px;
-}
 
 .title {
     padding-top: 10px;
