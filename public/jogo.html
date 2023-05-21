@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +10,8 @@
     <link rel="icon" type="imagem/png" href="./assets/Imagens/logo.png" />
     <title>Jogo da memória!</title>
 </head>
-<body>
+
+<body onload="buscarImagem()">
     <div class="wrapper">
         <div id="stars"></div>
         <div id="stars2"></div>
@@ -33,12 +35,66 @@
         <div class="container">
             <div class="titulo">
                 <h1>Jogo da memória!</h1>
-            </div>
+            </div> <br>
             <div id="jogo"></div>
         </div>
     </main>
 </body>
+
 </html>
 <script>
+    async function buscarImagem() {
+        let listaImagem = await fetch("/times/listarEscudos", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+            listaImagem.push(...listaImagem)
+            for(var contagem = 0; contagem < listaImagem.length; contagem++) {
+                var sorteio = parseInt(Math.random() * listaImagem.length);
+        }
+        listaImagem.sort(() => {
+            return 0.5 - Math.random();
+        });
+        criarJogo(listaImagem);
+    }
+
+    const grade = document.querySelector("#jogo");
+    let escolhidas = [];
     
+    function criarJogo(listaImagem) {
+        for(var i = 0; i < listaImagem.length; i++) {
+            let carta = document.createElement("img");
+            carta.id = i;
+            carta.name = listaImagem[i].nome;
+            carta.src = "./assets/Imagens/card_jogo.png";
+            carta.addEventListener("click", escolherCarta);
+            grade.appendChild(carta);
+        }
+
+        function escolherCarta() {
+            let carta = this;
+            carta.src = listaImagem[carta.id].urlImagem;
+            escolhidas.push(carta);
+            
+            if(escolhidas.length == 2) {
+                
+                setTimeout(() => {
+                    let carta1 = escolhidas[0];
+                    let carta2 = escolhidas[1];
+    
+                    if(carta1.name == carta2.name) {
+                        carta1.src == "./assets/Imagens/preto.png";
+                        carta2.src == "./assets/Imagens/preto.png";
+                    }
+                }, 1000)
+
+                escolhidas = []
+                console.log(carta1)
+            }
+        }
+
+
+    }
 </script>
