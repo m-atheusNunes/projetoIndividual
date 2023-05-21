@@ -33,9 +33,9 @@
             <img src="./assets/Imagens/logo_main.png" alt="Logo Libertadores">
             <div class="quadro_login">
                 <div class="campos_cima">
-                    <label for="login_email">Email <img class="icon" src="./assets/Imagens/icon_email.png"></label>
+                    <label for="ipt_email">Email <img class="icon" src="./assets/Imagens/icon_email.png"></label>
                     <input placeholder="exemplo@email.com" id="ipt_email" type="email"> <br>
-                    <label for="login_senha">Senha <img class="icon " src="./assets/Imagens/icon_password.png"></label>
+                    <label for="ipt_senha">Senha <img class="icon " src="./assets/Imagens/icon_password.png"></label>
                     <input placeholder="**********" id="ipt_senha" type="password"> <br>
                 </div>
                 <div class="campos_baixo">
@@ -63,9 +63,17 @@
             })
         }).then(res => {
             if (res.ok) {
-                window.location.href = "./Páginas/Home/Campeões/index.html"
+                efetuarLogin()
+            } else if(email == "") {
+                alert("O campo do email está vazio!")
+            } else if(senha == "") {
+                alert("O campo da senha está vazio!")
+            } else {
+                alert(`Email ou senha errados!\nOu a conta não existe!`)
             }
-            console.log(res)
         })
     })
+    function efetuarLogin() {
+            window.location.href = "/home.html"
+        }
 </script>
