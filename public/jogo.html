@@ -34,13 +34,14 @@
     <main>
         <div class="container">
             <div class="titulo">
-                <h1>Jogo da memória!</h1>
+                <h1>Jogo da memória!</h1> <br>
+                <h4>Pontos:   <span id="pontos"></span></h4>
+                <h4>Movimentos usados:   <span id="movimentos"></span></h4>
             </div> <br>
             <div id="jogo"></div>
         </div>
     </main>
 </body>
-
 </html>
 <script>
     async function buscarImagem() {
@@ -61,9 +62,13 @@
     }
 
     const grade = document.querySelector("#jogo");
+    let ponto;
     let escolhidas = [];
     
     function criarJogo(listaImagem) {
+        ponto = 0
+        pontos.innerText = ponto;
+
         for(var i = 0; i < listaImagem.length; i++) {
             let carta = document.createElement("img");
             carta.id = i;
@@ -77,24 +82,32 @@
             let carta = this;
             carta.src = listaImagem[carta.id].urlImagem;
             escolhidas.push(carta);
-            
-            if(escolhidas.length == 2) {
-                
+
+            if(escolhidas.length == 2) {    
                 setTimeout(() => {
                     let carta1 = escolhidas[0];
                     let carta2 = escolhidas[1];
     
                     if(carta1.name == carta2.name) {
-                        carta1.src == "./assets/Imagens/preto.png";
-                        carta2.src == "./assets/Imagens/preto.png";
+                        carta1.src = "./assets/Imagens/preto.png";
+                        carta2.src = "./assets/Imagens/preto.png";
+                        carta1.removeEventListener("click", escolherCarta);
+                        carta2.removeEventListener("click", escolherCarta);
+                        ponto++
+                        pontos.innerText = ponto;
+                    } else {
+                        carta1.src = "./assets/Imagens/card_jogo.png";
+                        carta2.src = "./assets/Imagens/card_jogo.png";
                     }
-                }, 1000)
 
-                escolhidas = []
-                console.log(carta1)
+                    if(ponto == listaImagem.length / 2) {
+                        alert("Parabéns! Você achou todos os pares!");
+                        grade.innerHTML = ``;
+                        window.location.href = "/jogo.html"
+                    }
+                    escolhidas = [];
+                }, 400);
             }
         }
-
-
     }
-</script>
+    </script>
