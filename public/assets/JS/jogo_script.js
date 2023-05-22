@@ -17,12 +17,17 @@ async function buscarImagem() {
 
 const grade = document.querySelector("#jogo");
 let ponto;
+let movimentos = 0;
 let escolhidas = [];
+exibir_movimentos.innerHTML = 0;
 
 function criarJogo(listaImagem) {
     ponto = 0
     pontos.innerText = ponto;
 
+    grade.addEventListener("click", () => {
+    })
+    
     for(var i = 0; i < listaImagem.length; i++) {
         let carta = document.createElement("img");
         carta.id = i;
@@ -31,18 +36,22 @@ function criarJogo(listaImagem) {
         carta.addEventListener("click", escolherCarta);
         grade.appendChild(carta);
     }
-
+    
     function escolherCarta() {
         let carta = this;
         carta.src = listaImagem[carta.id].urlImagem;
         escolhidas.push(carta);
 
+        carta.removeEventListener("click", escolherCarta);
+        
         if(escolhidas.length == 2) {    
+            movimentos++;
+            exibir_movimentos.innerText = movimentos;
             setTimeout(() => {
                 let carta1 = escolhidas[0];
                 let carta2 = escolhidas[1];
-
-                if(carta1.name == carta2.name) {
+                
+                if(carta1.name == carta2.name && carta1.id != carta2.id) {
                     carta1.src = "./assets/Imagens/preto.png";
                     carta2.src = "./assets/Imagens/preto.png";
                     carta1.removeEventListener("click", escolherCarta);
@@ -52,6 +61,8 @@ function criarJogo(listaImagem) {
                 } else {
                     carta1.src = "./assets/Imagens/card_jogo.png";
                     carta2.src = "./assets/Imagens/card_jogo.png";
+                    carta1.addEventListener("click", escolherCarta);
+                    carta2.addEventListener("click", escolherCarta);
                 }
 
                 if(ponto == listaImagem.length / 2) {
