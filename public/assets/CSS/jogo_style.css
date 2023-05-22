@@ -95,7 +95,7 @@ main .container {
 }
 
 #jogo img {
-    padding: 3px;
+    padding: 4px;
     width: 130px;
     object-fit: cover;
     aspect-ratio: 1;
