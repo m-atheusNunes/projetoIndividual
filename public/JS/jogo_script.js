@@ -36,6 +36,20 @@ function criarJogo(listaImagem) {
         carta.addEventListener("click", escolherCarta);
         grade.appendChild(carta);
     }
+
+    setTimeout(virarCartas, 1000);
+
+  function virarCartas() {
+    for (var i = 0; i < listaImagem.length; i++) {
+      let carta = document.getElementById(i);
+      carta.src = listaImagem[i].urlImagem;
+      setTimeout(virarCarta, 2000, carta);
+    }
+  }
+
+  function virarCarta(carta) {
+    carta.src = "./assets/Imagens/card_jogo.png";
+  }
     
     function escolherCarta() {
         let carta = this;
