@@ -5,67 +5,74 @@ async function buscarImagem() {
             "Content-Type": "application/json"
         }
     }).then(res => res.json())
-        listaImagem.push(...listaImagem)
-        for(var contagem = 0; contagem < listaImagem.length; contagem++) {
-            var sorteio = parseInt(Math.random() * listaImagem.length);
-    }
+
+    listaImagem.push(...listaImagem) // Duplicando todas as imagens da lista
+
+    // Embaralhando as imagens para não ficar padronizado
     listaImagem.sort(() => {
         return 0.5 - Math.random();
     });
-    criarJogo(listaImagem);
+
+    criarJogo(listaImagem); // Chamando a função que cria o jogo
 }
 
 const grade = document.querySelector("#jogo");
 let ponto;
-let movimentos = 0;
+let movimentos;
 let escolhidas = [];
-exibir_movimentos.innerHTML = 0;
 
+// Função que cria o jogo e suas funcionalidades
 function criarJogo(listaImagem) {
-    ponto = 0
+    grade.innerHTML = ``;
+    ponto = 0;
+    movimentos = 0;
     pontos.innerText = ponto;
+    exibir_movimentos.innerHTML = movimentos;
 
-    grade.addEventListener("click", () => {
-    })
-    
-    for(var i = 0; i < listaImagem.length; i++) {
+    // Percorrendo a minha lista de imagens para criar as cartas
+    for (var i = 0; i < listaImagem.length; i++) {
         let carta = document.createElement("img");
         carta.id = i;
         carta.name = listaImagem[i].nome;
+        carta.src = "./assets/Imagens/card_jogo.png"; // Escondendo qual o time da carta
+        carta.addEventListener("click", escolherCarta); // Adicionando uma ação ao clicar na carta
+        grade.appendChild(carta); // Adicionando a carta criada no laço de repetição como elemente filho da grade
+    }
+
+    setTimeout(virarCartas, 1000); // Adicionando delay na função para virar as cartas
+
+    // Função para mostrar as cartas por 2 segundos
+    function virarCartas() {
+        for (var i = 0; i < listaImagem.length; i++) {
+            let carta = document.getElementById(i);
+            carta.src = listaImagem[i].urlImagem;
+            setTimeout(virarCarta, 2000, carta); // Intervalo de tempo que as cartas ficarão viradas
+        }
+    }
+
+    // Função para virar as cartas novamente
+    function virarCarta(carta) {
         carta.src = "./assets/Imagens/card_jogo.png";
-        carta.addEventListener("click", escolherCarta);
-        grade.appendChild(carta);
     }
 
-    setTimeout(virarCartas, 1000);
-
-  function virarCartas() {
-    for (var i = 0; i < listaImagem.length; i++) {
-      let carta = document.getElementById(i);
-      carta.src = listaImagem[i].urlImagem;
-      setTimeout(virarCarta, 2000, carta);
-    }
-  }
-
-  function virarCarta(carta) {
-    carta.src = "./assets/Imagens/card_jogo.png";
-  }
-    
+    // Função que acontece quando clicar na carta
     function escolherCarta() {
-        let carta = this;
+        let carta = this; // Referencia ao objetivo que teve o eventListenner
         carta.src = listaImagem[carta.id].urlImagem;
         escolhidas.push(carta);
 
-        carta.removeEventListener("click", escolherCarta);
-        
-        if(escolhidas.length == 2) {    
-            movimentos++;
+        carta.removeEventListener("click", escolherCarta); // Removendo um evento de clique quando a carta for selecionada
+
+        // Ve
+        if (escolhidas.length == 2) {
+            movimentos++; // Adicionando 1 ao contador de movimentos usados pelo jogador
             exibir_movimentos.innerText = movimentos;
             setTimeout(() => {
-                let carta1 = escolhidas[0];
-                let carta2 = escolhidas[1];
-                
-                if(carta1.name == carta2.name && carta1.id != carta2.id) {
+                let carta1 = escolhidas[0]; // Atribuindo a carta escolhida à posição 0 da lista de escolhidas
+                let carta2 = escolhidas[1]; // Atribuindo a carta escolhida à posição 1 da lista de escolhidas
+
+                // Verificando se as cartas escolhidas são um par
+                if (carta1.name == carta2.name && carta1.id != carta2.id) {
                     carta1.src = "./assets/Imagens/preto.png";
                     carta2.src = "./assets/Imagens/preto.png";
                     carta1.removeEventListener("click", escolherCarta);
@@ -79,13 +86,16 @@ function criarJogo(listaImagem) {
                     carta2.addEventListener("click", escolherCarta);
                 }
 
-                if(ponto == listaImagem.length / 2) {
+                // Verificação para encerrar o jogo
+                if (ponto == listaImagem.length / 2) {
                     alert("Parabéns! Você achou todos os pares!");
                     grade.innerHTML = ``;
-                    window.location.href = "/jogo.html"
+                    grade.innerHTML = `<button onclick="buscarImagem()">Jogar Novamente</button>`;
                 }
-                escolhidas = [];
+
+                escolhidas = []; // Limpando a lista de cartas escolhidas
             }, 400);
         }
     }
 }
+// window.location.href = "/jogo.html"
