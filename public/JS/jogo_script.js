@@ -88,6 +88,23 @@ function criarJogo(listaImagem) {
 
                 // Verificação para encerrar o jogo
                 if (ponto == listaImagem.length / 2) {
+                    fetch("/jogo/tentativa", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            idUsuarioServer: sessionStorage.getItem("idUsuario"),
+                            movUsadosServer: movimentos
+                        })
+                    }).then(res => {
+                        if(res.ok) {
+                            alert("Sua tentativa foi registrada!")
+                        } else {
+                            console.log(res)
+                        }
+                    })
+                    
                     alert("Parabéns! Você achou todos os pares!");
                     grade.innerHTML = ``;
                     grade.innerHTML = `<button onclick="buscarImagem()">Jogar Novamente</button>`;
