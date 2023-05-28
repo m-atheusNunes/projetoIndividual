@@ -5,7 +5,7 @@ USE libertadores;
 
 DROP TABLE IF EXISTS tentativa;
 DROP TABLE IF EXISTS usuario;
-DROP TABLE IF EXISTS quiz;
+DROP TABLE IF EXISTS jogo;
 
 DROP TABLE IF EXISTS jogadorArtilheiro;
 DROP TABLE IF EXISTS timeCampeao;
@@ -19,22 +19,20 @@ CREATE TABLE usuario (
     CONSTRAINT chkEmail CHECK (email LIKE '%@%')
 );
 
-CREATE TABLE quiz (
+CREATE TABLE jogo (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    apelido VARCHAR(45) NOT NULL,
-    qtdPerguntas INT NOT NULL,
-    qtdAlternativas INT NOT NULL
+    nome VARCHAR(45) NOT NULL,
+    pontuacao INT NOT NULL
 );
 
 CREATE TABLE tentativa (
-    id INT NOT NULL,
     fkUsuario INT NOT NULL,
-    fkQuiz INT NOT NULL,
-    acertos INT NOT NULL,
-    erros INT NOT NULL,
+    fkJogo INT NOT NULL,
+    id INT NOT NULL,
+    movUsados INT NOT NULL,
     CONSTRAINT fkUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
-    CONSTRAINT fkQuiz FOREIGN KEY (fkQuiz) REFERENCES quiz(id),
-    CONSTRAINT pkIdUsuarioQuiz PRIMARY KEY (id, fkUsuario, fkQuiz)
+    CONSTRAINT fkJogo FOREIGN KEY (fkJogo) REFERENCES jogo(id),
+    CONSTRAINT pkUsuarioJogoId PRIMARY KEY (fkUsuario, fkJogo, id)
 );
 
 CREATE TABLE timeCampeao (
@@ -108,3 +106,6 @@ INSERT INTO jogadorArtilheiro VALUES
     (NULL, 'Corinthians', 'Luizão', 10),
     (NULL, 'Atlético Mineiro', 'Hulk', 13),
     (NULL, 'San Lorenzo', 'Alberto Acosta', 9);
+
+INSERT INTO jogo VALUES
+    (NULL, 'Jogo da memória', 10);
