@@ -63,3 +63,11 @@ header .container {
 .botoes_header button:hover {
     color: lightgrey;
 }
+
+main .grafico {
+    display: flex;
+    width: 70vw;
+    height: 70vh;
+    color: white;
+    background-color: #FFFFFF;
+}

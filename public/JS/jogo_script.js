@@ -101,7 +101,7 @@ function criarJogo(listaImagem) {
                         if(res.ok) {
                             alert("Sua tentativa foi registrada!")
                         } else {
-                            console.log(res)
+                            alert("Não foi possível registrar sua tentativa")
                         }
                     })
                     
