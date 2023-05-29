@@ -64,10 +64,19 @@ header .container {
     color: lightgrey;
 }
 
-main .grafico {
-    display: flex;
-    width: 70vw;
-    height: 70vh;
-    color: white;
-    background-color: #FFFFFF;
+canvas {
+    width: 50vw;
 }
+
+main .grafico {
+    margin: 30px auto;    
+    width: 50%;
+    height: 70%;
+    background: rgba( 255, 255, 255, 0.1 );
+    box-shadow: 0 8px 32px 0 rgba(135, 90, 31, 0.30);
+    backdrop-filter: blur(1px);
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 1rem;
+}
+

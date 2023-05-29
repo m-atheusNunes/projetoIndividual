@@ -1,15 +1,16 @@
-listaDados = fetch("/jogo/buscarDados", {
-    method: "GET",
-    headers: {
-        "Content-Type": "application/json"
-    }
-}).then(res => res.json())
+Chart.defaults.color = "#FFF";
 
-for(var i = 1; i < listaDados.length; i++) {
-    dadosRanking.datasets[0].data.push(listaDados[i].movUsados)
+async function reqDados() {
+    listaDados = await fetch("/jogo/buscarDados", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(res => res.json())
+
+    return listaDados
 }
 
-console.log(listaDados[1])
 
 const posicoes = [
     '1º',
@@ -44,5 +45,13 @@ const myChart = new Chart(
     document.getElementById('rankingJogadores'),
     graficoRanking
     )
+    
+async function plotarDados() {
+    var dados = await reqDados()
+    myChart.data.datasets[0].data = [];
+    for(var i = 0; i < dados.length; i++) {
+        myChart.data.datasets[0].data.push(dados[i].movUsados);
+    }
 
-    console.log(dadosRanking.datasets[0].data)
+    myChart.update();
+}
