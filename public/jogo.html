@@ -11,7 +11,7 @@
     <title>Jogo da memória!</title>
 </head>
 
-<body onload="buscarImagem()">
+<body>
     <div class="wrapper">
         <div id="stars"></div>
         <div id="stars2"></div>
@@ -34,11 +34,13 @@
 
     <main>
         <div class="container">
-            <div class="titulo">
-                <h1>Jogo da memória!</h1> <br>
+            <h1>Jogo da memória!</h1> <br>
+            <div id="marcadores" class="titulo">
                 <h4>Pontos: <span id="pontos"></span></h4>
                 <h4>Movimentos usados: <span id="exibir_movimentos"></span></h4>
-            </div> <br>
+            </div>
+            <button id="btn-jogar" onclick="buscarImagem()">INICIAR <br> JOGO</button>
+            <button id="btn-jogarNovamente" onclick="buscarImagem()">JOGAR <br> NOVAMENTE</button>
             <div id="jogo"></div>
         </div>
     </main>

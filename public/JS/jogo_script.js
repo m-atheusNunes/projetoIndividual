@@ -17,12 +17,17 @@ async function buscarImagem() {
 }
 
 const grade = document.querySelector("#jogo");
+const btn_jogar = document.querySelector("#btn-jogar");
+const btn_jogarNovamente = document.querySelector("#btn-jogarNovamente");
+const marcadores = document.querySelector("#marcadores");
 let ponto;
 let movimentos;
 let escolhidas = [];
 
 // Função que cria o jogo e suas funcionalidades
 function criarJogo(listaImagem) {
+    btn_jogar.style.display = "none";
+    marcadores.style.display = "block"
     grade.innerHTML = ``;
     ponto = 0;
     movimentos = 0;
@@ -107,7 +112,7 @@ function criarJogo(listaImagem) {
                     
                     alert("Parabéns! Você achou todos os pares!");
                     grade.innerHTML = ``;
-                    grade.innerHTML = `<button onclick="buscarImagem()">Jogar Novamente</button>`;
+                    btn_jogarNovamente.style.display = "block"
                 }
 
                 escolhidas = []; // Limpando a lista de cartas escolhidas
