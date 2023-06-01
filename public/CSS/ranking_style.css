@@ -68,15 +68,79 @@ canvas {
     width: 50vw;
 }
 
-main .grafico {
-    margin: 30px auto;    
+.grafico {
+    margin: 30px auto -0.5rem;    
     width: 50%;
     height: 70%;
     background: rgba( 255, 255, 255, 0.1 );
-    box-shadow: 0 8px 32px 0 rgba(135, 90, 31, 0.30);
+    box-shadow: 0 8px 32px 0 #daa52044;
     backdrop-filter: blur(1px);
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     padding: 1rem;
 }
 
+main h1 {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin: 1.3rem 0 0 0;
+}
+
+main h2 {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin: -10px 0 -1rem;
+}
+
+.top3 {
+    width: 90vw;
+    height: 260px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.card {
+    width: 30%;
+    height: 170px;
+    background: rgba( 255, 255, 255, 0.1 );
+    box-shadow: 0 8px 32px 0 #daa52044;
+    backdrop-filter: blur(1px);
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 1rem;
+}
+
+.titulo_top3 {
+    margin-top: 45px;
+}
+
+.top3_content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 14px;
+    color: white;
+}   
+
+.posicao {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #DAA520;
+}
+
+.top3_content span {
+    color: #DAA520;
+}
+
+.top3_content p {
+    font-weight: 500;
+}

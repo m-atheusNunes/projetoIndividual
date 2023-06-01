@@ -28,7 +28,7 @@ const posicoes = [
 const dadosRanking = {
     labels: posicoes,
     datasets: [{
-        label: 'Movimentos utilizados na tentativa',
+        label: 'Movimentos utilizados para ganhar o jogo',
         backgroundColor: '#DAA520',
         borderColor: '#DAA520',
         data: []
@@ -53,5 +53,18 @@ async function plotarDados() {
         myChart.data.datasets[0].data.push(dados[i].movUsados);
     }
 
+    for(var i = 0; i <= 2; i++) {
+        top3.innerHTML += `
+            <div class="card">
+                <div class="top3_content">
+                    <span class="posicao">${i+1}º LUGAR</span> <br>
+                    <p><span>Nome: </span> ${dados[i].nome}</p> 
+                    <p><span>Sobrenome: </span> ${dados[i].sobrenome}</p> 
+                    <p><span>Email: </span> ${dados[i].email}</p> 
+                    <p><span>Movimentos utilizados: </span> ${dados[i].movUsados}</p>
+                </div>
+            </div>
+        `
+    }
     myChart.update();
 }

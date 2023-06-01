@@ -9,7 +9,7 @@ function tentativa(idUsuario, movUsados) {
 
 
 function buscarDados() {
-    var instrucao = `SELECT tentativa.fkUsuario, tentativa.movUsados, usuario.nome, usuario.sobrenome FROM tentativa JOIN usuario ON tentativa.fkUsuario = usuario.id ORDER BY movUsados LIMIT 10;`
+    var instrucao = `SELECT tentativa.fkUsuario, tentativa.movUsados, usuario.nome, usuario.sobrenome, usuario.email FROM tentativa JOIN usuario ON tentativa.fkUsuario = usuario.id ORDER BY movUsados LIMIT 10;`
     
     return database.executar(instrucao);
 }
