@@ -52,6 +52,8 @@ async function plotarDados() {
     for(var i = 0; i < dados.length; i++) {
         myChart.data.datasets[0].data.push(dados[i].movUsados);
     }
+    
+    myChart.update();
 
     for(var i = 0; i <= 2; i++) {
         top3.innerHTML += `
@@ -66,5 +68,4 @@ async function plotarDados() {
             </div>
         `
     }
-    myChart.update();
 }

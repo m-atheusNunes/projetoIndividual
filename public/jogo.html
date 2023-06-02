@@ -33,16 +33,25 @@
     </header>
 
     <main>
-        <div class="container">
-            <h1>Jogo da memória!</h1> <br>
-            <div id="marcadores" class="titulo">
-                <h4>Pontos: <span id="pontos"></span></h4>
-                <h4>Movimentos usados: <span id="exibir_movimentos"></span></h4>
+        <section>
+            <div class="titulo">
+                <h1>Jogo da memória!</h1>
             </div>
-            <button id="btn-jogar" onclick="buscarImagem()">INICIAR <br> JOGO</button>
-            <button id="btn-jogarNovamente" onclick="buscarImagem()">JOGAR <br> NOVAMENTE</button>
-            <div id="jogo"></div>
-        </div>
+            <div id="marcadores" class="marcadores">
+                <h4>Pontos: <span id="pontos">0</span></h4>
+                <h4>Movimentos usados: <span id="exibir_movimentos">0</span></h4> <br>
+                <h5 id="mensagemRanking">Verifique na página de ranking a sua classificação.</h5>
+            </div>
+        </section>
+        <section>
+            <div class="botoes_jogo">
+                <button id="btn-jogar" onclick="buscarImagem()">INICIAR JOGO</button>
+                <button id="btn-jogarNovamente" onclick="buscarImagem()">JOGAR NOVAMENTE</button>
+            </div>
+            <div class="jogo">
+                <div id="grade"></div>
+            </div>
+        </section>
     </main>
     <script src="./JS/jogo_script.js"></script>
 </body>

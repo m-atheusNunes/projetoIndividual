@@ -16,10 +16,11 @@ async function buscarImagem() {
     criarJogo(listaImagem); // Chamando a função que cria o jogo
 }
 
-const grade = document.querySelector("#jogo");
+const grade = document.querySelector("#grade");
 const btn_jogar = document.querySelector("#btn-jogar");
 const btn_jogarNovamente = document.querySelector("#btn-jogarNovamente");
 const marcadores = document.querySelector("#marcadores");
+const mensagemRanking = document.querySelector("#mensagemRanking");
 let ponto;
 let movimentos;
 let escolhidas = [];
@@ -27,12 +28,12 @@ let escolhidas = [];
 // Função que cria o jogo e suas funcionalidades
 function criarJogo(listaImagem) {
     btn_jogar.style.display = "none";
-    marcadores.style.display = "block"
+    btn_jogarNovamente.style.display = "none";
+    mensagemRanking.style.display = "none";
+    marcadores.style.display = "block";
     grade.innerHTML = ``;
     ponto = 0;
     movimentos = 0;
-    pontos.innerText = ponto;
-    exibir_movimentos.innerHTML = movimentos;
 
     // Percorrendo a minha lista de imagens para criar as cartas
     for (var i = 0; i < listaImagem.length; i++) {
@@ -43,6 +44,8 @@ function criarJogo(listaImagem) {
         carta.addEventListener("click", escolherCarta); // Adicionando uma ação ao clicar na carta
         grade.appendChild(carta); // Adicionando a carta criada no laço de repetição como elemente filho da grade
     }
+
+    window.scroll(0,200)
 
     setTimeout(virarCartas, 1000); // Adicionando delay na função para virar as cartas
 
@@ -113,6 +116,7 @@ function criarJogo(listaImagem) {
                     alert("Parabéns! Você achou todos os pares!");
                     grade.innerHTML = ``;
                     btn_jogarNovamente.style.display = "block"
+                    mensagemRanking.style.display = "block"
                 }
 
                 escolhidas = []; // Limpando a lista de cartas escolhidas
