@@ -95,7 +95,7 @@ main .container {
     margin-top: -3%;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(to bottom, #DAA520, #ffd700);
+    background: url(../assets/Imagens/dourado.jpg) bottom/cover;
     color: white;
     font-weight: bolder;
     font-size: 24px;
@@ -104,7 +104,6 @@ main .container {
 
 .quadro_cadastro button:hover {
     width: 71%;
-    background: linear-gradient(to right, #DAA520, #ffd700);
 }
 
 .campos {

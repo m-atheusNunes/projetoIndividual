@@ -131,7 +131,7 @@ label .icon {
     height: 45px;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(to bottom, #DAA520, #ffd700);
+    background: url(../assets/Imagens/dourado.jpg) bottom/cover;
     color: white;
     font-weight: bolder;
     font-size: 24px;
@@ -140,7 +140,6 @@ label .icon {
 
 .campos_baixo button:hover {
     width: 176.75px;
-    background: linear-gradient(to right, #DAA520, #ffd700);
 }
 
 .campos_baixo p {
