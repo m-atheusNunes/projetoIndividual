@@ -103,6 +103,11 @@ header .container {
     display: none;
 }
 
+.botoes_jogo button:hover {
+    width: 243px;
+    opacity: .9;
+}
+
 
 #btn-jogar {
     display: block;

@@ -104,6 +104,7 @@ main .container {
 
 .quadro_cadastro button:hover {
     width: 71%;
+    opacity: .9;
 }
 
 .campos {
