@@ -80,8 +80,32 @@ header .container {
     display: none;
 }
 
-.marcadores h5 {
+#cardMensagem {
+    width: 30%;
+    height: 170px;
+    color: white;
+    background: rgba( 255, 255, 255, 0.1 );
+    box-shadow: 0 8px 32px 0 #daa52044;
+    backdrop-filter: blur(1px);
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 1rem;
+    margin: 10px auto;
     display: none;
+}
+
+#explicandoJogo {
+    margin-top: 20px;
+    color: white;
+    display: block;
+}
+
+.conteudo {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .botoes_jogo {
@@ -124,7 +148,7 @@ header .container {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-bottom: 27px;
+    margin-bottom: 14px;
 }
 
 #grade img {

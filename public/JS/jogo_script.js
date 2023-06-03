@@ -20,7 +20,8 @@ const grade = document.querySelector("#grade");
 const btn_jogar = document.querySelector("#btn-jogar");
 const btn_jogarNovamente = document.querySelector("#btn-jogarNovamente");
 const marcadores = document.querySelector("#marcadores");
-const mensagemRanking = document.querySelector("#mensagemRanking");
+const cardMensagem = document.querySelector("#cardMensagem");
+const explicacaoJogo = document.querySelector("#explicandoJogo");
 let ponto;
 let movimentos;
 let escolhidas = [];
@@ -29,11 +30,13 @@ let escolhidas = [];
 function criarJogo(listaImagem) {
     btn_jogar.style.display = "none";
     btn_jogarNovamente.style.display = "none";
-    mensagemRanking.style.display = "none";
+    cardMensagem.style.display = "none"
+    explicacaoJogo.style.display = "none";
     marcadores.style.display = "block";
-    grade.innerHTML = ``;
     ponto = 0;
     movimentos = 0;
+    contador_movimentos.innerText = `${movimentos}`;
+    grade.innerHTML = ``;
 
     // Percorrendo a minha lista de imagens para criar as cartas
     for (var i = 0; i < listaImagem.length; i++) {
@@ -74,7 +77,7 @@ function criarJogo(listaImagem) {
         // Ve
         if (escolhidas.length == 2) {
             movimentos++; // Adicionando 1 ao contador de movimentos usados pelo jogador
-            exibir_movimentos.innerText = movimentos;
+            contador_movimentos.innerText = movimentos;
             setTimeout(() => {
                 let carta1 = escolhidas[0]; // Atribuindo a carta escolhida à posição 0 da lista de escolhidas
                 let carta2 = escolhidas[1]; // Atribuindo a carta escolhida à posição 1 da lista de escolhidas
@@ -86,7 +89,6 @@ function criarJogo(listaImagem) {
                     carta1.removeEventListener("click", escolherCarta);
                     carta2.removeEventListener("click", escolherCarta);
                     ponto++
-                    pontos.innerText = ponto;
                 } else {
                     carta1.src = "./assets/Imagens/card_jogo.png";
                     carta2.src = "./assets/Imagens/card_jogo.png";
@@ -107,16 +109,15 @@ function criarJogo(listaImagem) {
                         })
                     }).then(res => {
                         if(res.ok) {
-                            alert("Sua tentativa foi registrada!")
                         } else {
                             alert("Não foi possível registrar sua tentativa")
                         }
                     })
-                    
-                    alert("Parabéns! Você achou todos os pares!");
                     grade.innerHTML = ``;
+                    marcadores.style.display = "none";
+                    exibir_movimentos.innerHTML = `${movimentos}`
                     btn_jogarNovamente.style.display = "block"
-                    mensagemRanking.style.display = "block"
+                    cardMensagem.style.display = "block"
                 }
 
                 escolhidas = []; // Limpando a lista de cartas escolhidas
@@ -124,4 +125,3 @@ function criarJogo(listaImagem) {
         }
     }
 }
-// window.location.href = "/jogo.html"
