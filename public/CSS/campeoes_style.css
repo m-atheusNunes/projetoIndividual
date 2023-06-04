@@ -65,6 +65,13 @@ header .container {
     color: lightgrey;
 }
 
+.titulo {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin: 10px 0 20px;
+}
+
 #content {
     display: flex;
     flex-direction: row;
