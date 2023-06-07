@@ -7,15 +7,35 @@ document.querySelector(".btn-cadastro").addEventListener("click", () => {
     var confirmarSenha = ipt_confirmarSenha.value
 
     if (nome == "" || sobrenome == "" || email == "" || confirmarEmail == "" || senha == "" || confirmarSenha == "") {
-        alert("Os campos não podem ser vazios!")
-    } else if (confirmarEmail != email) {
-        alert("A confirmação do email não é igual ao email")
-    } else if (confirmarSenha != senha) {
-        alert("A confirmação da senha não é igual a senha")
+        Swal.fire({
+            icon: 'error',
+            title: 'Não foi possível cadastrar!',
+            text: 'Verifique se todos campos estão preenchidos.',
+          })
     } else if (email.indexOf("@") == -1 || email.startsWith("@") == true || email.endsWith("@") == true || email.startsWith(".") == true || email.endsWith(".") == true || email.length <= 3) {
-        alert("Insira um email válido!")
+        Swal.fire({
+            icon: 'error',
+            title: 'Email inválido!',
+            text: 'Insira um endereço de email válido.',
+          })
+    } else if (confirmarEmail != email) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Confirmação de email inválida!',
+            text: 'O email e a confirmação de email são diferentes.',
+          })
     } else if (senha.length < 6) {
-        alert("A senha deve ter no mínimo 6 caracteres")
+        Swal.fire({
+            icon: 'error',
+            title: 'Senha inválida!',
+            text: 'A senha deve ter no mínimo 6 caracteres.',
+          })
+    } else if (confirmarSenha != senha) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Confirmação de senha inválida!',
+            text: 'A senha e a confirmação de email são diferentes.',
+          })
     } else {
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -30,12 +50,21 @@ document.querySelector(".btn-cadastro").addEventListener("click", () => {
             })
         }).then(res => {
             if (res.ok) {
-                alert("Cadastro efetuado! Redirecionando...")
-                setInterval(redirecionarLogin(), 3000)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Cadastro efetuado!',
+                    text: 'Você será redirecionado a página de login.',
+                })
+                setInterval(() => {
+                    redirecionarLogin()
+                }, 3000)
             } else if(!res.ok) {
-                alert("Email já em uso!")
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Email inválido!',
+                    text: 'Esse email já está em uso.',
+                  })
             }
-            console.log(res)
         })
     }
 })

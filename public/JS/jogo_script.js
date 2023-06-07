@@ -1,3 +1,11 @@
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true
+  })
+
 async function buscarImagem() {
     let listaImagem = await fetch("/times/listarEscudos", {
         method: "GET",
@@ -19,6 +27,7 @@ async function buscarImagem() {
 const grade = document.querySelector("#grade");
 const btn_jogar = document.querySelector("#btn-jogar");
 const btn_jogarNovamente = document.querySelector("#btn-jogarNovamente");
+const btn_ranking = document.querySelector("#btn-ranking");
 const marcadores = document.querySelector("#marcadores");
 const cardMensagem = document.querySelector("#cardMensagem");
 const explicacaoJogo = document.querySelector("#explicandoJogo");
@@ -30,7 +39,8 @@ let escolhidas = [];
 function criarJogo(listaImagem) {
     btn_jogar.style.display = "none";
     btn_jogarNovamente.style.display = "none";
-    cardMensagem.style.display = "none"
+    btn_ranking.style.display = "none";
+    cardMensagem.style.display = "none";
     explicacaoJogo.style.display = "none";
     marcadores.style.display = "block";
     ponto = 0;
@@ -47,9 +57,8 @@ function criarJogo(listaImagem) {
         carta.addEventListener("click", escolherCarta); // Adicionando uma ação ao clicar na carta
         grade.appendChild(carta); // Adicionando a carta criada no laço de repetição como elemente filho da grade
     }
-
-    window.scroll(0,200)
-
+    
+    window.scroll(0,200) // Descendo a tela para centralizar o jogo
     setTimeout(virarCartas, 1000); // Adicionando delay na função para virar as cartas
 
     // Função para mostrar as cartas por 2 segundos
@@ -57,12 +66,12 @@ function criarJogo(listaImagem) {
         for (var i = 0; i < listaImagem.length; i++) {
             let carta = document.getElementById(i);
             carta.src = listaImagem[i].urlImagem;
-            setTimeout(virarCarta, 2000, carta); // Intervalo de tempo que as cartas ficarão viradas
+            setTimeout(desvirarCarta, 2000, carta); // Intervalo de tempo que as cartas ficarão viradas
         }
     }
 
     // Função para virar as cartas novamente
-    function virarCarta(carta) {
+    function desvirarCarta(carta) {
         carta.src = "./assets/Imagens/card_jogo.png";
     }
 
@@ -109,15 +118,24 @@ function criarJogo(listaImagem) {
                         })
                     }).then(res => {
                         if(res.ok) {
+                            Toast.fire({
+                                icon: 'success',
+                                title: 'Sua tentativa foi registrada!'
+                            })
                         } else {
-                            alert("Não foi possível registrar sua tentativa")
+                            Toast.fire({
+                                icon: 'error',
+                                title: 'Não foi possível registrar a tentativa!',
+                                text: 'Tente entrar novamente na sua conta.'
+                            })
                         }
                     })
                     grade.innerHTML = ``;
                     marcadores.style.display = "none";
-                    exibir_movimentos.innerHTML = `${movimentos}`
-                    btn_jogarNovamente.style.display = "block"
-                    cardMensagem.style.display = "block"
+                    exibir_movimentos.innerHTML = `${movimentos}`;
+                    btn_jogarNovamente.style.display = "block";
+                    btn_ranking.style.display = "block";
+                    cardMensagem.style.display = "block";
                 }
 
                 escolhidas = []; // Limpando a lista de cartas escolhidas
@@ -125,3 +143,12 @@ function criarJogo(listaImagem) {
         }
     }
 }
+
+btn_ranking.addEventListener("click", () => {
+    Toast.fire({
+        title: 'Redirecionando...'
+    })
+    setInterval(() => {
+        window.location.href = "/ranking.html"
+    }, 2000)
+})

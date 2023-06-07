@@ -65,6 +65,10 @@ header .container {
     color: lightgrey;
 }
 
+#btn-sair {
+    cursor: pointer;
+}
+
 section {
     width: 95vw;
     height: fit-content;

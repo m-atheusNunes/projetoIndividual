@@ -65,6 +65,10 @@ header .container {
     color: lightgrey;
 }
 
+#btn-sair {
+    cursor: pointer;
+}
+
 .titulo {
     text-align: center;
     font-size: 20px;

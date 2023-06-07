@@ -12,16 +12,35 @@ document.querySelector(".btn-login").addEventListener("click", () => {
         })
     }).then(res => {
         if (res.ok) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Login realizado!',
+                text: 'Redirecionando...',
+            })
             return res.json();
         } else if(email == "") {
-            alert("O campo do email está vazio!")
+            Swal.fire({
+                icon: 'error',
+                title: 'Insira um email!',
+                text: 'O email não pode ser vazio.',
+              })
         } else if(senha == "") {
-            alert("O campo da senha está vazio!")
+            Swal.fire({
+                icon: 'error',
+                title: 'Insira uma senha!',
+                text: 'A senha não pode ser vazia.',
+              })
         } else {
-            alert(`Email ou senha errados!\nOu a conta não existe!`)
+            Swal.fire({
+                icon: 'error',
+                title: 'Email ou senha inválidos!',
+                text: 'Verifique se foram digitados corretamente.',
+              })
         }
     }).then(resposta =>{
-        efetuarLogin(resposta)
+        setInterval(() => {
+            efetuarLogin(resposta)
+        }, 3000)
     })
 })
 

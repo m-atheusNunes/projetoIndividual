@@ -46,7 +46,7 @@ const myChart = new Chart(
     graficoRanking
     )
     
-var idUsuarioAtual = Number(sessionStorage.getItem("idUsuario"));
+var idUsuarioAtual = sessionStorage.getItem("idUsuario");
 
 async function plotarDados() {
     var dados = await reqDados()

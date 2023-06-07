@@ -65,6 +65,10 @@ header .container {
     color: lightgrey;
 }
 
+#btn-sair {
+    cursor: pointer;
+}
+
 .titulo {
     display: flex;
     justify-content: center;

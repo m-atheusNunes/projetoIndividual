@@ -65,6 +65,10 @@ header .container {
     color: lightgrey;
 }
 
+#btn-sair {
+    cursor: pointer;
+}
+
 canvas {
     width: 50vw;
 }
