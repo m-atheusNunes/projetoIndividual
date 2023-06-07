@@ -62,11 +62,16 @@ header .container {
 }
 
 .botoes_header button:hover {
+    transform: scale(1.05);
     color: lightgrey;
 }
 
 #btn-sair {
     cursor: pointer;
+}
+
+#btn-sair:hover {
+    transform: scale(1.05);
 }
 
 canvas {
